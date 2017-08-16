@@ -13,15 +13,15 @@ class ItemService {
   }
 
   updateData(data, id) {
-    axios.post('http://localhost:4200/items/update'+id, {
+    axios.post('http://localhost:4200/items/update/'+id, {
       item: data
     })
-    .then(res => this.setState({items: res.data}))
+    .then(res => console.log('Updated OK', res))
     .catch(err => console.log(err));
   }
 
   deleteData(id) {
-    axios.get('http://localhost:4200/items/delete'+id)
+    axios.get('http://localhost:4200/items/delete/'+id)
     .then(console.log('Deleted'))
     .catch(err=>console.log(err));
   }

@@ -29,7 +29,7 @@ itemRouter.route('/edit/:id').get(function(req, res) {
 //Create item
 itemRouter.route('/add/post').post(function(req, res) {
   var item = new Item(req.body);
-  Item.save()
+  item.save()
   .then( item => {
     res.json('Item saved successfully');
   })

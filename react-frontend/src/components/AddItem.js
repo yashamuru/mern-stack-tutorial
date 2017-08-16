@@ -18,7 +18,7 @@ class AddItem extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.addItemService.sendData(this.state.value);
-    this.props.history.push('/');
+    this.props.history.push('/index');
   }
 
   render() {
