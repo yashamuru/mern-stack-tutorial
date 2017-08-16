@@ -5,9 +5,10 @@ var port = 4200;
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+require('dotenv').config();
 
 //Mongo DB connection:
-mongoose.connect('mongodb://pesho:Protoss@ds145183.mlab.com:45183/yasha',
+mongoose.connect(process.env.MONGO_LINK,
     {useMongoClient: true}
   )
   .then(
@@ -33,5 +34,5 @@ app.use('/items', itemRouter);
 
 //Start the server:
 app.listen( port, function () {
-  console.log('Server is running on Port:' , port);
+  console.log('Server is running on Port:', port);
 });
