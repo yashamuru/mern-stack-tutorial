@@ -3,12 +3,12 @@ var app = express();
 var itemRouter =  express.Router();
 
 //Get the item model :
-var item = require('../models/item');
+var Item = require('../models/item');
 
 //Define your routes here:
 //Get all items:
 itemRouter.route('/').get(function(req, res) {
-  item.find(function(err, itms){
+  Item.find(function(err, itms){
     if(err) {
       console.log(err);
     }
@@ -29,7 +29,7 @@ itemRouter.route('/edit/:id').get(function(req, res) {
 //Create item
 itemRouter.route('/add/post').post(function(req, res) {
   var item = new Item(req.body);
-  item.save()
+  Item.save()
   .then( item => {
     res.json('Item saved successfully');
   })
